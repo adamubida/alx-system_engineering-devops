@@ -1,2 +1,2 @@
 #!/bin/bash
-cp -nu *.html .. [5:54 pm, 31/08/2022] Rose Kimondo: 15. #!/bin/bash mv [[:upper:]]* /tmp/u
+cp -rua *.html ../
