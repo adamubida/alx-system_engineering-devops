@@ -1,1 +1,1 @@
-This repository contains the solution to the 0x02-shell_redirections task
+This directory contains the silution to the 0x03 shell variables expansions tasks
