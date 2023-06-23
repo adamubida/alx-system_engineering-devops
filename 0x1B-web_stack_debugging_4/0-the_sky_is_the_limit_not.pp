@@ -1,12 +1,9 @@
-# Fix problem of high amount of requests
-
-exec {'replace':
-  provider => shell,
-  command  => 'sudo sed -i "s/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/" /etc/default/nginx',
-  before   => Exec['restart'],
+# using ApacheBench simulate HTTP requests to a web server to get failed requests and fix our stack
+exec { 'webstack-debug':
+  command => '/bin/sed -i "s/15/1000/" /etc/default/nginx'
 }
 
-exec {'restart':
-  provider => shell,
-  command  => 'sudo service nginx restart',
+exec { 'nginx':
+  require => Exec['webstack-debug'],
+  command => '/usr/sbin/service nginx restart'
 }
